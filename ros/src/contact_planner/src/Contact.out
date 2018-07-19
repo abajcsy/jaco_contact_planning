@@ -1,0 +1,582 @@
+1
+ 
+ SNMEMA EXIT 100 -- finished successfully
+ SNMEMA INFO 104 -- memory requirements estimated
+
+ Nonzero derivs  Jij         5
+ Non-constant    Jij's       4     Constant Jij's           1
+1
+ 
+ SNJAC  EXIT 100 -- finished successfully
+ SNJAC  INFO 102 -- Jacobian structure estimated
+
+ Trial version of SNOPT -- for evaluation or academic purposes only
+
+ 
+ ===>  WARNING - Column      3 of the Jacobian is empty.
+ ===>  WARNING - Column      4 of the Jacobian is empty.
+ ===>  WARNING - Column      5 of the Jacobian is empty.
+ ===>  WARNING - Column      6 of the Jacobian is empty.
+ ===>  WARNING - Column      7 of the Jacobian is empty.
+ ===>  WARNING - Column      8 of the Jacobian is empty.
+ ===>  WARNING - Column      9 of the Jacobian is empty.
+ ===>  WARNING - Column     10 of the Jacobian is empty.
+ ===>  WARNING - Column     11 of the Jacobian is empty.
+ ===>  WARNING - Column     12 of the Jacobian is empty.
+ ===>  WARNING - Column     13 of the Jacobian is empty.
+ ===>  WARNING - Column     14 of the Jacobian is empty.
+ ===>  WARNING - Column     15 of the Jacobian is empty.
+ ===>  WARNING - Column     16 of the Jacobian is empty.
+ ===>  WARNING - Column     17 of the Jacobian is empty.
+ ===>  WARNING - Column     18 of the Jacobian is empty.
+ ===>  WARNING - Column     19 of the Jacobian is empty.
+ ===>  WARNING - Column     20 of the Jacobian is empty.
+ ===>  WARNING - Column     21 of the Jacobian is empty.
+ ===>  WARNING - Column     22 of the Jacobian is empty.
+ ===>  WARNING - Column     23 of the Jacobian is empty.
+ ===>  WARNING - Column     24 of the Jacobian is empty.
+ ===>  WARNING - Column     25 of the Jacobian is empty.
+ ===>  WARNING - Column     26 of the Jacobian is empty.
+ ===>  WARNING - Column     27 of the Jacobian is empty.
+ ===>  WARNING - Column     28 of the Jacobian is empty.
+ ===>  WARNING - Column     29 of the Jacobian is empty.
+ ===>  WARNING - Column     30 of the Jacobian is empty.
+ ===>  WARNING - Column     31 of the Jacobian is empty.
+ ===>  WARNING - Column     32 of the Jacobian is empty.
+ ===>  WARNING - Column     33 of the Jacobian is empty.
+ ===>  WARNING - Column     34 of the Jacobian is empty.
+ ===>  WARNING - Column     35 of the Jacobian is empty.
+ ===>  WARNING - Column     36 of the Jacobian is empty.
+ ===>  WARNING - Column     37 of the Jacobian is empty.
+ ===>  WARNING - Column     38 of the Jacobian is empty.
+ ===>  WARNING - Column     39 of the Jacobian is empty.
+ ===>  WARNING - Column     40 of the Jacobian is empty.
+ ===>  WARNING - Column     41 of the Jacobian is empty.
+ ===>  WARNING - Column     42 of the Jacobian is empty.
+ ===>  WARNING - Column     43 of the Jacobian is empty.
+ ===>  WARNING - Column     44 of the Jacobian is empty.
+ ===>  WARNING - Column     45 of the Jacobian is empty.
+ ===>  WARNING - Column     46 of the Jacobian is empty.
+ ===>  WARNING - Column     47 of the Jacobian is empty.
+ ===>  WARNING - Column     48 of the Jacobian is empty.
+ ===>  WARNING - Column     49 of the Jacobian is empty.
+ ===>  WARNING - Column     50 of the Jacobian is empty.
+ ===>  WARNING - Column     51 of the Jacobian is empty.
+ ===>  WARNING - Column     52 of the Jacobian is empty.
+ ===>  WARNING - Column     53 of the Jacobian is empty.
+ ===>  WARNING - Column     54 of the Jacobian is empty.
+ ===>  WARNING - Column     55 of the Jacobian is empty.
+ ===>  WARNING - Column     56 of the Jacobian is empty.
+ ===>  WARNING - Column     57 of the Jacobian is empty.
+ ===>  WARNING - Column     58 of the Jacobian is empty.
+ ===>  WARNING - Column     59 of the Jacobian is empty.
+ ===>  WARNING - Column     60 of the Jacobian is empty.
+ ===>  WARNING - Column     61 of the Jacobian is empty.
+ ===>  WARNING - Column     62 of the Jacobian is empty.
+ ===>  WARNING - Column     63 of the Jacobian is empty.
+ ===>  WARNING - Column     64 of the Jacobian is empty.
+ ===>  WARNING - Column     65 of the Jacobian is empty.
+ ===>  WARNING - Column     66 of the Jacobian is empty.
+ ===>  WARNING - Column     67 of the Jacobian is empty.
+ ===>  WARNING - Column     68 of the Jacobian is empty.
+ ===>  WARNING - Column     69 of the Jacobian is empty.
+ ===>  WARNING - Column     70 of the Jacobian is empty.
+ ===>  WARNING - Column     71 of the Jacobian is empty.
+ ===>  WARNING - Column     72 of the Jacobian is empty.
+ ===>  WARNING - Column     73 of the Jacobian is empty.
+ ===>  WARNING - Column     74 of the Jacobian is empty.
+ ===>  WARNING - Column     75 of the Jacobian is empty.
+ ===>  WARNING - Column     76 of the Jacobian is empty.
+ ===>  WARNING - Column     77 of the Jacobian is empty.
+ ===>  WARNING - Column     78 of the Jacobian is empty.
+ ===>  WARNING - Column     79 of the Jacobian is empty.
+ ===>  WARNING - Column     80 of the Jacobian is empty.
+ ===>  WARNING - Column     81 of the Jacobian is empty.
+ ===>  WARNING - Column     82 of the Jacobian is empty.
+ ===>  WARNING - Column     83 of the Jacobian is empty.
+ ===>  WARNING - Column     84 of the Jacobian is empty.
+ ===>  WARNING - Column     85 of the Jacobian is empty.
+ ===>  WARNING - Column     86 of the Jacobian is empty.
+ ===>  WARNING - Column     87 of the Jacobian is empty.
+ ===>  WARNING - Column     88 of the Jacobian is empty.
+ ===>  WARNING - Column     89 of the Jacobian is empty.
+ ===>  WARNING - Column     90 of the Jacobian is empty.
+ ===>  WARNING - Column     91 of the Jacobian is empty.
+ ===>  WARNING - Column     92 of the Jacobian is empty.
+ ===>  WARNING - Column     93 of the Jacobian is empty.
+ ===>  WARNING - Column     94 of the Jacobian is empty.
+ ===>  WARNING - Column     95 of the Jacobian is empty.
+ ===>  WARNING - Column     96 of the Jacobian is empty.
+ ===>  WARNING - Column     97 of the Jacobian is empty.
+ ===>  WARNING - Column     98 of the Jacobian is empty.
+ ===>  WARNING - Column     99 of the Jacobian is empty.
+ ===>  WARNING - Column    100 of the Jacobian is empty.
+ ===>  WARNING - Column    101 of the Jacobian is empty.
+ ===>  WARNING - Column    102 of the Jacobian is empty.
+ ===>  WARNING - Column    103 of the Jacobian is empty.
+ ===>  WARNING - Column    104 of the Jacobian is empty.
+ ===>  WARNING - Column    105 of the Jacobian is empty.
+ ===>  WARNING - Column    106 of the Jacobian is empty.
+ ===>  WARNING - Column    107 of the Jacobian is empty.
+ ===>  WARNING - Column    108 of the Jacobian is empty.
+ ===>  WARNING - Column    109 of the Jacobian is empty.
+ ===>  WARNING - Column    110 of the Jacobian is empty.
+ ===>  WARNING - Column    111 of the Jacobian is empty.
+ ===>  WARNING - Column    112 of the Jacobian is empty.
+ ===>  WARNING - Column    113 of the Jacobian is empty.
+ ===>  WARNING - Column    114 of the Jacobian is empty.
+ ===>  WARNING - Column    115 of the Jacobian is empty.
+ ===>  WARNING - Column    116 of the Jacobian is empty.
+ ===>  WARNING - Column    117 of the Jacobian is empty.
+ ===>  WARNING - Column    118 of the Jacobian is empty.
+ ===>  WARNING - Column    119 of the Jacobian is empty.
+ ===>  WARNING - Column    120 of the Jacobian is empty.
+ ===>  WARNING - Column    121 of the Jacobian is empty.
+ ===>  WARNING - Column    122 of the Jacobian is empty.
+ ===>  WARNING - Column    123 of the Jacobian is empty.
+ ===>  WARNING - Column    124 of the Jacobian is empty.
+ ===>  WARNING - Column    125 of the Jacobian is empty.
+ ===>  WARNING - Column    126 of the Jacobian is empty.
+ ===>  WARNING - Column    127 of the Jacobian is empty.
+ ===>  WARNING - Column    128 of the Jacobian is empty.
+ ===>  WARNING - Row         4 of the Jacobian is empty.
+ ===>  WARNING - Row         5 of the Jacobian is empty.
+ ===>  WARNING - Row         6 of the Jacobian is empty.
+ ===>  WARNING - Row         7 of the Jacobian is empty.
+ ===>  WARNING - Row         8 of the Jacobian is empty.
+ ===>  WARNING - Row         9 of the Jacobian is empty.
+ ===>  WARNING - Row        10 of the Jacobian is empty.
+ ===>  WARNING - Row        11 of the Jacobian is empty.
+ ===>  WARNING - Row        12 of the Jacobian is empty.
+ ===>  WARNING - Row        13 of the Jacobian is empty.
+ ===>  WARNING - Row        14 of the Jacobian is empty.
+ ===>  WARNING - Row        15 of the Jacobian is empty.
+ ===>  WARNING - Row        16 of the Jacobian is empty.
+ ===>  WARNING - Row        17 of the Jacobian is empty.
+ ===>  WARNING - Row        18 of the Jacobian is empty.
+ ===>  WARNING - Row        19 of the Jacobian is empty.
+ ===>  WARNING - Row        20 of the Jacobian is empty.
+ ===>  WARNING - Row        21 of the Jacobian is empty.
+ ===>  WARNING - Row        22 of the Jacobian is empty.
+ ===>  WARNING - Row        23 of the Jacobian is empty.
+ ===>  WARNING - Row        24 of the Jacobian is empty.
+ ===>  WARNING - Row        25 of the Jacobian is empty.
+ ===>  WARNING - Row        26 of the Jacobian is empty.
+ ===>  WARNING - Row        27 of the Jacobian is empty.
+ ===>  WARNING - Row        28 of the Jacobian is empty.
+ ===>  WARNING - Row        29 of the Jacobian is empty.
+ ===>  WARNING - Row        30 of the Jacobian is empty.
+ ===>  WARNING - Row        31 of the Jacobian is empty.
+ ===>  WARNING - Row        32 of the Jacobian is empty.
+ ===>  WARNING - Row        33 of the Jacobian is empty.
+ ===>  WARNING - Row        34 of the Jacobian is empty.
+ ===>  WARNING - Row        35 of the Jacobian is empty.
+ ===>  WARNING - Row        36 of the Jacobian is empty.
+ ===>  WARNING - Row        37 of the Jacobian is empty.
+ ===>  WARNING - Row        38 of the Jacobian is empty.
+ ===>  WARNING - Row        39 of the Jacobian is empty.
+ ===>  WARNING - Row        40 of the Jacobian is empty.
+ ===>  WARNING - Row        41 of the Jacobian is empty.
+ ===>  WARNING - Row        42 of the Jacobian is empty.
+ ===>  WARNING - Row        43 of the Jacobian is empty.
+ ===>  WARNING - Row        44 of the Jacobian is empty.
+ ===>  WARNING - Row        45 of the Jacobian is empty.
+ ===>  WARNING - Row        46 of the Jacobian is empty.
+ ===>  WARNING - Row        47 of the Jacobian is empty.
+ ===>  WARNING - Row        48 of the Jacobian is empty.
+ ===>  WARNING - Row        49 of the Jacobian is empty.
+ ===>  WARNING - Row        50 of the Jacobian is empty.
+ ===>  WARNING - Row        51 of the Jacobian is empty.
+ ===>  WARNING - Row        52 of the Jacobian is empty.
+ ===>  WARNING - Row        53 of the Jacobian is empty.
+ ===>  WARNING - Row        54 of the Jacobian is empty.
+ ===>  WARNING - Row        55 of the Jacobian is empty.
+ ===>  WARNING - Row        56 of the Jacobian is empty.
+ ===>  WARNING - Row        57 of the Jacobian is empty.
+ ===>  WARNING - Row        58 of the Jacobian is empty.
+ ===>  WARNING - Row        59 of the Jacobian is empty.
+ ===>  WARNING - Row        60 of the Jacobian is empty.
+ ===>  WARNING - Row        61 of the Jacobian is empty.
+ ===>  WARNING - Row        62 of the Jacobian is empty.
+ ===>  WARNING - Row        63 of the Jacobian is empty.
+ ===>  WARNING - Row        64 of the Jacobian is empty.
+ ===>  WARNING - Row        65 of the Jacobian is empty.
+ ===>  WARNING - Row        66 of the Jacobian is empty.
+ ===>  WARNING - Row        67 of the Jacobian is empty.
+ ===>  WARNING - Row        68 of the Jacobian is empty.
+ ===>  WARNING - Row        69 of the Jacobian is empty.
+ ===>  WARNING - Row        70 of the Jacobian is empty.
+ ===>  WARNING - Row        71 of the Jacobian is empty.
+ ===>  WARNING - Row        72 of the Jacobian is empty.
+ ===>  WARNING - Row        73 of the Jacobian is empty.
+ ===>  WARNING - Row        74 of the Jacobian is empty.
+ ===>  WARNING - Row        75 of the Jacobian is empty.
+ ===>  WARNING - Row        76 of the Jacobian is empty.
+ ===>  WARNING - Row        77 of the Jacobian is empty.
+ ===>  WARNING - Row        78 of the Jacobian is empty.
+ ===>  WARNING - Row        79 of the Jacobian is empty.
+ ===>  WARNING - Row        80 of the Jacobian is empty.
+ ===>  WARNING - Row        81 of the Jacobian is empty.
+ ===>  WARNING - Row        82 of the Jacobian is empty.
+ ===>  WARNING - Row        83 of the Jacobian is empty.
+ ===>  WARNING - Row        84 of the Jacobian is empty.
+ ===>  WARNING - Row        85 of the Jacobian is empty.
+ ===>  WARNING - Row        86 of the Jacobian is empty.
+ ===>  WARNING - Row        87 of the Jacobian is empty.
+ ===>  WARNING - Row        88 of the Jacobian is empty.
+ ===>  WARNING - Row        89 of the Jacobian is empty.
+ ===>  WARNING - Row        90 of the Jacobian is empty.
+ ===>  WARNING - Row        91 of the Jacobian is empty.
+1
+ 
+ Parameters
+ ==========
+
+ Files
+ -----
+ Solution file..........         0       Old basis file ........         0       Standard input.........         5
+ Insert file............         0       New basis file ........         0       (Printer)..............        10
+ Punch file.............         0       Backup basis file......         0       (Specs file)...........         0
+ Load file..............         0       Dump file..............         0       Standard output........         6
+
+ Frequencies
+ -----------
+ Print frequency........       100       Check frequency........        60       Save new basis map.....       100
+ Summary frequency......       100       Factorization frequency        50       Expand frequency.......     10000
+
+ QP subproblems
+ --------------
+ QPsolver Cholesky......
+ Scale tolerance........     0.900       Minor feasibility tol..  1.00E-06       Iteration limit........     10000
+ Scale option...........         0       Minor optimality  tol..  1.00E-06       Minor print level......         1
+ Crash tolerance........     0.100       Pivot tolerance........  3.25E-11       New superbasics........        99
+ Crash option...........         3       Elastic weight.........  1.00E+05
+
+ Partial pricing
+ ---------------
+ LP Partial price.......         1       Prtl price section ( A)       128       Prtl price section (-I)        91
+ QP Partial price.......         1       Prtl price section ( A)       128       Prtl price section (-I)        91
+
+ The SQP Method
+ --------------
+ Minimize...............                 Cold start.............                 Proximal Point method..         1
+ Nonlinear objectiv vars         0       Objective Row..........         1       Function precision.....  3.00E-13
+ Unbounded step size....  1.00E+20       Superbasics limit......         3       Difference interval....  5.48E-07
+ Unbounded objective....  1.00E+10       Reduced Hessian dim....         3       Central difference int.  6.70E-05
+ Major step limit.......  2.00E+00       Nonderiv.  linesearch..                 Derivative option......         0
+ Major iterations limit.      1000       Linesearch tolerance...   0.90000       Verify level...........         3
+ Minor iterations limit.       500       Penalty parameter......  0.00E+00       Major Print Level......         1
+ Time limit (secs)...... 9999999.0       Major optimality tol...  2.00E-06
+
+ Hessian Approximation
+ ---------------------
+ Hessian full-memory....                 Hessian updates........  99999999       Hessian frequency......  99999999
+                                                                                 Hessian flush..........  99999999
+
+ Nonlinear constraints
+ ---------------------
+ Nonlinear constraints..         2       Major feasibility tol..  1.00E-06       Violation limit........  1.00E+01
+ Nonlinear Jacobian vars         2
+
+ Miscellaneous
+ -------------
+ LU factor tolerance....      3.99       LU singularity tol.....  3.25E-11       Timing level...........         3
+ LU update tolerance....      3.99       LU swap tolerance......  1.22E-04       Debug level............         0
+ LU partial  pivoting...                 eps (machine precision)  2.22E-16       System information.....        No
+                                                                                 Sticky parameters......        No
+1
+ 
+
+ 
+
+ Matrix statistics
+ -----------------
+               Total      Normal        Free       Fixed     Bounded
+ Rows             91           0           1          90           0
+ Columns         128           0           0         128           0
+
+ No. of matrix elements                    5     Density       0.043
+ Biggest  constant element        0.0000E+00  (excluding fixed columns,
+ Smallest constant element        0.0000E+00   free rows, and RHS)
+
+ No. of objective coefficients             0
+
+ Nonlinear constraints       2     Linear constraints      89
+ Nonlinear variables         2     Linear variables       126
+ Jacobian  variables         2     Objective variables      0
+ Total constraints          91     Total variables        128
+1
+ 
+
+ 
+ The user has defined       0   out of       4   first  derivatives
+
+ 
+ Column       x(j)        dx(j)    Element no.    Row        Derivative    Difference approxn
+1
+ 
+ 
+
+   Itns Major Minors    Step   nCon Feasible  Optimal  MeritFunction     L+U BSwap     nS condZHZ Penalty
+      0     0      0              1  4.0E+00 (0.0E+00) 0.0000000E+00      91                              _  r i
+1
+ 
+ SNOPTA EXIT  10 -- the problem appears to be infeasible
+ SNOPTA INFO  13 -- nonlinear infeasibilities minimized
+
+ Problem name                  Contact
+ No. of iterations                   0   Objective            0.0000000000E+00
+ No. of major iterations             0   Linear    obj. term  0.0000000000E+00
+ Penalty parameter           0.000E+00   Nonlinear obj. term  0.0000000000E+00
+ User function calls (total)         3   Calls with modes 1,2 (known g)      1
+ Calls for forward differencing      2   Calls for central differencing      0
+ No. of degenerate steps             0   Percentage                       0.00
+ Max x                       1 0.0E+00   Max pi                      2 1.0E+10
+ Max Primal infeas           0 0.0E+00   Max Dual infeas             0 0.0E+00
+ Nonlinear constraint violn    4.0E+00
+1
+ 
+ Name            Contact                 Objective Value      0.0000000000E+00
+
+ Status         Optimal Soln             Iteration      0    Superbasics     0
+
+ Objective               (Min)
+ RHS
+ Ranges
+ Bounds
+
+ Section 1 - Constraints
+
+  Number  ...Row.. State  ...Value......  Slack Value...  ..Lower Limit.  ..Upper Limit.  .Dual Variable    ..i
+ 
+     129  r      1    BS          .               .                None            None         -1.0          1
+     130  r      2 D  BS          .               .               .               .               .           2
+     131  r      3 D  BS         4.00000         4.00000          .               .        -1.000000E+10      3
+     132  r      4 D  BS          .               .               .               .               .           4
+     133  r      5 D  BS          .               .               .               .               .           5
+     134  r      6 D  BS          .               .               .               .               .           6
+     135  r      7 D  BS          .               .               .               .               .           7
+     136  r      8 D  BS          .               .               .               .               .           8
+     137  r      9 D  BS          .               .               .               .               .           9
+     138  r     10 D  BS          .               .               .               .               .          10
+     139  r     11 D  BS          .               .               .               .               .          11
+     140  r     12 D  BS          .               .               .               .               .          12
+     141  r     13 D  BS          .               .               .               .               .          13
+     142  r     14 D  BS          .               .               .               .               .          14
+     143  r     15 D  BS          .               .               .               .               .          15
+     144  r     16 D  BS          .               .               .               .               .          16
+     145  r     17 D  BS          .               .               .               .               .          17
+     146  r     18 D  BS          .               .               .               .               .          18
+     147  r     19 D  BS          .               .               .               .               .          19
+     148  r     20 D  BS          .               .               .               .               .          20
+     149  r     21 D  BS          .               .               .               .               .          21
+     150  r     22 D  BS          .               .               .               .               .          22
+     151  r     23 D  BS          .               .               .               .               .          23
+     152  r     24 D  BS          .               .               .               .               .          24
+     153  r     25 D  BS          .               .               .               .               .          25
+     154  r     26 D  BS          .               .               .               .               .          26
+     155  r     27 D  BS          .               .               .               .               .          27
+     156  r     28 D  BS          .               .               .               .               .          28
+     157  r     29 D  BS          .               .               .               .               .          29
+     158  r     30 D  BS          .               .               .               .               .          30
+     159  r     31 D  BS          .               .               .               .               .          31
+     160  r     32 D  BS          .               .               .               .               .          32
+     161  r     33 D  BS          .               .               .               .               .          33
+     162  r     34 D  BS          .               .               .               .               .          34
+     163  r     35 D  BS          .               .               .               .               .          35
+     164  r     36 D  BS          .               .               .               .               .          36
+     165  r     37 D  BS          .               .               .               .               .          37
+     166  r     38 D  BS          .               .               .               .               .          38
+     167  r     39 D  BS          .               .               .               .               .          39
+     168  r     40 D  BS          .               .               .               .               .          40
+     169  r     41 D  BS          .               .               .               .               .          41
+     170  r     42 D  BS          .               .               .               .               .          42
+     171  r     43 D  BS          .               .               .               .               .          43
+     172  r     44 D  BS          .               .               .               .               .          44
+     173  r     45 D  BS          .               .               .               .               .          45
+     174  r     46 D  BS          .               .               .               .               .          46
+     175  r     47 D  BS          .               .               .               .               .          47
+     176  r     48 D  BS          .               .               .               .               .          48
+     177  r     49 D  BS          .               .               .               .               .          49
+     178  r     50 D  BS          .               .               .               .               .          50
+     179  r     51 D  BS          .               .               .               .               .          51
+     180  r     52 D  BS          .               .               .               .               .          52
+     181  r     53 D  BS          .               .               .               .               .          53
+     182  r     54 D  BS          .               .               .               .               .          54
+     183  r     55 D  BS          .               .               .               .               .          55
+     184  r     56 D  BS          .               .               .               .               .          56
+     185  r     57 D  BS          .               .               .               .               .          57
+     186  r     58 D  BS          .               .               .               .               .          58
+     187  r     59 D  BS          .               .               .               .               .          59
+     188  r     60 D  BS          .               .               .               .               .          60
+     189  r     61 D  BS          .               .               .               .               .          61
+     190  r     62 D  BS          .               .               .               .               .          62
+     191  r     63 D  BS          .               .               .               .               .          63
+     192  r     64 D  BS          .               .               .               .               .          64
+     193  r     65 D  BS          .               .               .               .               .          65
+     194  r     66 D  BS          .               .               .               .               .          66
+     195  r     67 D  BS          .               .               .               .               .          67
+     196  r     68 D  BS          .               .               .               .               .          68
+     197  r     69 D  BS          .               .               .               .               .          69
+     198  r     70 D  BS          .               .               .               .               .          70
+     199  r     71 D  BS          .               .               .               .               .          71
+     200  r     72 D  BS          .               .               .               .               .          72
+     201  r     73 D  BS          .               .               .               .               .          73
+     202  r     74 D  BS          .               .               .               .               .          74
+     203  r     75 D  BS          .               .               .               .               .          75
+     204  r     76 D  BS          .               .               .               .               .          76
+     205  r     77 D  BS          .               .               .               .               .          77
+     206  r     78 D  BS          .               .               .               .               .          78
+     207  r     79 D  BS          .               .               .               .               .          79
+     208  r     80 D  BS          .               .               .               .               .          80
+     209  r     81 D  BS          .               .               .               .               .          81
+     210  r     82 D  BS          .               .               .               .               .          82
+     211  r     83 D  BS          .               .               .               .               .          83
+     212  r     84 D  BS          .               .               .               .               .          84
+     213  r     85 D  BS          .               .               .               .               .          85
+     214  r     86 D  BS          .               .               .               .               .          86
+     215  r     87 D  BS          .               .               .               .               .          87
+     216  r     88 D  BS          .               .               .               .               .          88
+     217  r     89 D  BS          .               .               .               .               .          89
+     218  r     90 D  BS          .               .               .               .               .          90
+     219  r     91 D  BS          .               .               .               .               .          91
+1
+ 
+ Section 2 - Variables
+
+  Number  .Column. State  ...Value......  .Obj Gradient.  ..Lower Limit.  ..Upper Limit.  .Dual Variable    m+j
+ 
+       1  x      1    EQ          .               .               .               .        -4.000001E+10     92
+       2  x      2 A  EQ          .              1.0              .               .          -5479.76053     93
+       3  x      3 A  EQ          .               .               .               .               .          94
+       4  x      4 A  EQ          .               .               .               .               .          95
+       5  x      5 A  EQ          .               .               .               .               .          96
+       6  x      6 A  EQ          .               .               .               .               .          97
+       7  x      7 A  EQ          .               .               .               .               .          98
+       8  x      8 A  EQ          .               .               .               .               .          99
+       9  x      9 A  EQ          .               .               .               .               .         100
+      10  x     10 A  EQ          .               .               .               .               .         101
+      11  x     11 A  EQ          .               .               .               .               .         102
+      12  x     12 A  EQ          .               .               .               .               .         103
+      13  x     13 A  EQ          .               .               .               .               .         104
+      14  x     14 A  EQ          .               .               .               .               .         105
+      15  x     15 A  EQ          .               .               .               .               .         106
+      16  x     16 A  EQ          .               .               .               .               .         107
+      17  x     17 A  EQ          .               .               .               .               .         108
+      18  x     18 A  EQ          .               .               .               .               .         109
+      19  x     19 A  EQ          .               .               .               .               .         110
+      20  x     20 A  EQ          .               .               .               .               .         111
+      21  x     21 A  EQ          .               .               .               .               .         112
+      22  x     22 A  EQ          .               .               .               .               .         113
+      23  x     23 A  EQ          .               .               .               .               .         114
+      24  x     24 A  EQ          .               .               .               .               .         115
+      25  x     25 A  EQ          .               .               .               .               .         116
+      26  x     26 A  EQ          .               .               .               .               .         117
+      27  x     27 A  EQ          .               .               .               .               .         118
+      28  x     28 A  EQ          .               .               .               .               .         119
+      29  x     29 A  EQ          .               .               .               .               .         120
+      30  x     30 A  EQ          .               .               .               .               .         121
+      31  x     31 A  EQ          .               .               .               .               .         122
+      32  x     32 A  EQ          .               .               .               .               .         123
+      33  x     33 A  EQ          .               .               .               .               .         124
+      34  x     34 A  EQ          .               .               .               .               .         125
+      35  x     35 A  EQ          .               .               .               .               .         126
+      36  x     36 A  EQ          .               .               .               .               .         127
+      37  x     37 A  EQ          .               .               .               .               .         128
+      38  x     38 A  EQ          .               .               .               .               .         129
+      39  x     39 A  EQ          .               .               .               .               .         130
+      40  x     40 A  EQ          .               .               .               .               .         131
+      41  x     41 A  EQ          .               .               .               .               .         132
+      42  x     42 A  EQ          .               .               .               .               .         133
+      43  x     43 A  EQ          .               .               .               .               .         134
+      44  x     44 A  EQ          .               .               .               .               .         135
+      45  x     45 A  EQ          .               .               .               .               .         136
+      46  x     46 A  EQ          .               .               .               .               .         137
+      47  x     47 A  EQ          .               .               .               .               .         138
+      48  x     48 A  EQ          .               .               .               .               .         139
+      49  x     49 A  EQ          .               .               .               .               .         140
+      50  x     50 A  EQ          .               .               .               .               .         141
+      51  x     51 A  EQ          .               .               .               .               .         142
+      52  x     52 A  EQ          .               .               .               .               .         143
+      53  x     53 A  EQ          .               .               .               .               .         144
+      54  x     54 A  EQ          .               .               .               .               .         145
+      55  x     55 A  EQ          .               .               .               .               .         146
+      56  x     56 A  EQ          .               .               .               .               .         147
+      57  x     57 A  EQ          .               .               .               .               .         148
+      58  x     58 A  EQ          .               .               .               .               .         149
+      59  x     59 A  EQ          .               .               .               .               .         150
+      60  x     60 A  EQ          .               .               .               .               .         151
+      61  x     61 A  EQ          .               .               .               .               .         152
+      62  x     62 A  EQ          .               .               .               .               .         153
+      63  x     63 A  EQ          .               .               .               .               .         154
+      64  x     64 A  EQ          .               .               .               .               .         155
+      65  x     65 A  EQ          .               .               .               .               .         156
+      66  x     66 A  EQ          .               .               .               .               .         157
+      67  x     67 A  EQ          .               .               .               .               .         158
+      68  x     68 A  EQ          .               .               .               .               .         159
+      69  x     69 A  EQ          .               .               .               .               .         160
+      70  x     70 A  EQ          .               .               .               .               .         161
+      71  x     71 A  EQ          .               .               .               .               .         162
+      72  x     72 A  EQ          .               .               .               .               .         163
+      73  x     73 A  EQ          .               .               .               .               .         164
+      74  x     74 A  EQ          .               .               .               .               .         165
+      75  x     75 A  EQ          .               .               .               .               .         166
+      76  x     76 A  EQ          .               .               .               .               .         167
+      77  x     77 A  EQ          .               .               .               .               .         168
+      78  x     78 A  EQ          .               .               .               .               .         169
+      79  x     79 A  EQ          .               .               .               .               .         170
+      80  x     80 A  EQ          .               .               .               .               .         171
+      81  x     81 A  EQ          .               .               .               .               .         172
+      82  x     82 A  EQ          .               .               .               .               .         173
+      83  x     83 A  EQ          .               .               .               .               .         174
+      84  x     84 A  EQ          .               .               .               .               .         175
+      85  x     85 A  EQ          .               .               .               .               .         176
+      86  x     86 A  EQ          .               .               .               .               .         177
+      87  x     87 A  EQ          .               .               .               .               .         178
+      88  x     88 A  EQ          .               .               .               .               .         179
+      89  x     89 A  EQ          .               .               .               .               .         180
+      90  x     90 A  EQ          .               .               .               .               .         181
+      91  x     91 A  EQ          .               .               .               .               .         182
+      92  x     92 A  EQ          .               .               .               .               .         183
+      93  x     93 A  EQ          .               .               .               .               .         184
+      94  x     94 A  EQ          .               .               .               .               .         185
+      95  x     95 A  EQ          .               .               .               .               .         186
+      96  x     96 A  EQ          .               .               .               .               .         187
+      97  x     97 A  EQ          .               .               .               .               .         188
+      98  x     98 A  EQ          .               .               .               .               .         189
+      99  x     99 A  EQ          .               .               .               .               .         190
+     100  x    100 A  EQ          .               .               .               .               .         191
+     101  x    101 A  EQ          .               .               .               .               .         192
+     102  x    102 A  EQ          .               .               .               .               .         193
+     103  x    103 A  EQ          .               .               .               .               .         194
+     104  x    104 A  EQ          .               .               .               .               .         195
+     105  x    105 A  EQ          .               .               .               .               .         196
+     106  x    106 A  EQ          .               .               .               .               .         197
+     107  x    107 A  EQ          .               .               .               .               .         198
+     108  x    108 A  EQ          .               .               .               .               .         199
+     109  x    109 A  EQ          .               .               .               .               .         200
+     110  x    110 A  EQ          .               .               .               .               .         201
+     111  x    111 A  EQ          .               .               .               .               .         202
+     112  x    112 A  EQ          .               .               .               .               .         203
+     113  x    113 A  EQ          .               .               .               .               .         204
+     114  x    114 A  EQ          .               .               .               .               .         205
+     115  x    115 A  EQ          .               .               .               .               .         206
+     116  x    116 A  EQ          .               .               .               .               .         207
+     117  x    117 A  EQ          .               .               .               .               .         208
+     118  x    118 A  EQ          .               .               .               .               .         209
+     119  x    119 A  EQ          .               .               .               .               .         210
+     120  x    120 A  EQ          .               .               .               .               .         211
+     121  x    121 A  EQ          .               .               .               .               .         212
+     122  x    122 A  EQ          .               .               .               .               .         213
+     123  x    123 A  EQ          .               .               .               .               .         214
+     124  x    124 A  EQ          .               .               .               .               .         215
+     125  x    125 A  EQ          .               .               .               .               .         216
+     126  x    126 A  EQ          .               .               .               .               .         217
+     127  x    127 A  EQ          .               .               .               .               .         218
+     128  x    128 A  EQ          .               .               .               .               .         219
+ 
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                       0.00 seconds
+ Time for solution output                       0.00 seconds
+ Time for constraint functions                  0.00 seconds
+ Time for objective function                    0.00 seconds
