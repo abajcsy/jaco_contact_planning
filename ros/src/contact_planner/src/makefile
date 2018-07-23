@@ -7,4 +7,7 @@ planContact.o: planContact.cpp
 
 all: planContact
 
+clean: 
+	rm planContact.o planContact
+
 .DEFAULT_TARGET: all

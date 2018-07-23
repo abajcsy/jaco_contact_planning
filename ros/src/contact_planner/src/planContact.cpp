@@ -4,80 +4,264 @@
 #include <iterator>
 #include <vector>
 #include <algorithm>
+#include <Eigen/Core>
+#include <urdf/model.h>
+#include <kdl_parser/kdl_parser.hpp>
+#include "ros/ros.h"
 
 #include "snoptProblem.hpp"
 
 using namespace std;
+using namespace Eigen;
 
-const double pi = 3.1415926535897;
+const string prefix     = "j2s7s300";
+const double pi         = 3.1415926535897;
 
-void userfun(int    *Status, int *n,    double x[],
-	     int    *needF,  int *neF,  double F[],
-	     int    *needG,  int *neG,  double G[],
-	     char      *cu,  int *lencu,
-	     int    iu[],    int *leniu,
-	     double ru[],    int *lenru) {
-  
-  // TODO IMPLEMENT ME!
+const int T             = 10.0;         // planning horizon
+const double dt         = 0.5;          // timestep
+const int dofRobot      = 3;            // num dofs of robot
+const int dofEnv        = 1;            // num dofs of environment
+const int dofLamb       =  1;           // dimension of contact forces 
 
-  F[0] =  x[1];
-  F[1] =  x[0]*x[0] + 4*x[1]*x[1];
-  F[2] = (x[0] - 2)*(x[0] - 2) + x[1]*x[1];
-}
+const double goal[] = {-0.4, 0.5};
+const double obsLow[]   = {-1.0, 0.3};
+const double obsHigh[]  = {1.0, 0.3};
 
 // --------- HELPER FUNCTIONS --------- //
 
-void setConfigRobot(double *x, int t, double *q, int dofRobot, int dofEnv){
+VectorXf config2DTo3D(VectorXf& q2D){
+  VectorXf q3D(10);
+  q3D << q2D(0), pi/2.0, pi/2.0, q2D(1), pi, q2D(2), pi, 0, 0, 0;
+  return q3D;
+}
+
+VectorXf config3DTo2D(VectorXf& q3D){
+  VectorXf q2D(3);
+  q2D << q3D(0), q3D(3), q3D(5);
+  return q2D;
+}
+
+VectorXf vel2DTo3D(VectorXf& dq2D){
+  VectorXf dq3D(10);
+  dq3D << dq2D(0), 0, 0, dq2D(1), 0, dq2D(2), 0, 0, 0, 0;
+  return dq3D;
+}
+
+VectorXf vel3DTo2D(VectorXf& dq3D){
+  VectorXf dq2D(3);
+  dq2D << dq3D(0), dq3D(3), dq3D(5);
+  return dq2D;
+}
+
+VectorXf control2DTo3D(VectorXf& u2D){
+  VectorXf u3D(10);
+  u3D << u2D(0), 0, 0, u2D(1), 0, u2D(2), 0, 0, 0, 0;
+  return u3D;
+}
+
+VectorXf control3DTo2D(VectorXf& u3D){
+  VectorXf u2D(3);
+  u2D << u3D(0), u3D(3), u3D(5);
+  return u2D;
+}
+
+VectorXf acc2DTo3D(VectorXf& ddq2D){
+  VectorXf ddq3D(10);
+  ddq3D << ddq2D(0), 0, 0, ddq2D(1), 0, ddq2D(2), 0, 0, 0, 0;
+  return ddq3D;
+}
+
+VectorXf acc3DTo2D(VectorXf& ddq3D){
+  VectorXf ddq2D(3);
+  ddq2D << ddq3D(0), ddq3D(3), ddq3D(5);
+  return ddq2D;
+}
+
+// --------- GETTER FUNCTIONS --------- //
+
+double getFinalCost(VectorXf& q, VectorXf& dq){
+  VectorXf q3D = config2DTo3D(q);
+  //string linkName = strcat(prefix, "_link_7");
+  //vector<double> eePose = getTransform(robot, q3d, linkName);
+  // VectorXf goal(2);
+  // goalPose << goal[0], goal[1];
+  //double gf = 30*(goalPose - eePose).norm();
+  double gf = 0.0;
+  return gf;
+}
+
+double getRunningCost(VectorXf& q, VectorXf& dq, VectorXf& u){
+  return 0.0;
+}
+
+VectorXf getConfigRobot(double *x, int t){
+  VectorXf qRobot(dofRobot); 
   int lowOffset = 2*(dofRobot + dofEnv)*t + 1;
   int upOffset  = 2*(dofRobot + dofEnv)*t + dofRobot;
-  std::copy(x + lowOffset, x + upOffset, q);
+  for(size_t ii=lowOffset; ii <= upOffset; ii++)    // TODO check if should be inclusive
+    qRobot(ii-lowOffset) = x[ii];
+  return qRobot;
 }
 
-void setConfigEnv(double *x, int t, double *q, int dofRobot, int dofEnv){
-  int lowOffset = 2*(dofRobot + dofEnv)*t + dofRobot + 1;
-  int upOffset  = 2*(dofRobot + dofEnv)*t + dofRobot + dofEnv;
-  std::copy(x + lowOffset, x + upOffset, q);
-}
-
-void setVelRobot(double *x, int t, double *dq, int dofRobot, int dofEnv){
+VectorXf getVelRobot(double *x, int t){
+  VectorXf dqRobot(dofRobot); 
   int lowOffset = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + 1;
   int upOffset  = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + dofRobot;
-  std::copy(x + lowOffset, x + upOffset, dq);
+  for(size_t ii=lowOffset; ii <= upOffset; ii++)    // TODO check if should be inclusive
+    dqRobot(ii-lowOffset) = x[ii];
+  return dqRobot;
 }
 
-void setVelEnv(double *x, int t, double *dq, int dofRobot, int dofEnv){
+VectorXf getConfigEnv(double *x, int t){
+  VectorXf qEnv(dofEnv); //= new double[dofEnv];
+  int lowOffset = 2*(dofRobot + dofEnv)*t + dofRobot + 1;
+  int upOffset  = 2*(dofRobot + dofEnv)*t + dofRobot + dofEnv;
+  for(size_t ii=lowOffset; ii <= upOffset; ii++)    // TODO check if should be inclusive
+    qEnv(ii-lowOffset) = x[ii];
+  return qEnv;
+}
+
+VectorXf getVelEnv(double *x, int t){
+  VectorXf dqEnv(dofEnv); 
   int lowOffset = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + dofRobot + 1;
   int upOffset  = 2*(dofRobot + dofEnv)*t + 2*(dofRobot + dofEnv);
-  std::copy(x + lowOffset, x + upOffset, dq);
+  for(size_t ii=lowOffset; ii <= upOffset; ii++)    // TODO check if should be inclusive
+    dqEnv(ii-lowOffset) = x[ii];
+  return dqEnv;
 }
 
-void setU(double *x, int t, double *u, int nx, int dofRobot){
+VectorXf getU(double *x, int t){
+  VectorXf u(dofRobot); 
+  int nx = 2*(dofRobot+dofEnv)*(T+1);
+  int lowOffset = nx + 1 + dofRobot*(t - 1);
+  int upOffset  = nx + 1 + dofRobot*t - 1;
+  for(size_t ii=lowOffset; ii <= upOffset; ii++)    // TODO check if should be inclusive
+    u(ii-lowOffset) = x[ii];
+  return u;
+}
+// ------------------------------------ //
+
+// --------- SETTER FUNCTIONS --------- //
+
+void setConfigRobot(double *x, int t, double *q){
+  int lowOffset = 2*(dofRobot + dofEnv)*t + 1;
+  int upOffset  = 2*(dofRobot + dofEnv)*t + dofRobot;
+  copy(x + lowOffset, x + upOffset, q);
+}
+
+void setConfigEnv(double *x, int t, double *q){
+  int lowOffset = 2*(dofRobot + dofEnv)*t + dofRobot + 1;
+  int upOffset  = 2*(dofRobot + dofEnv)*t + dofRobot + dofEnv;
+  copy(x + lowOffset, x + upOffset, q);
+}
+
+void setVelRobot(double *x, int t, double *dq){
+  int lowOffset = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + 1;
+  int upOffset  = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + dofRobot;
+  copy(x + lowOffset, x + upOffset, dq);
+}
+
+void setVelEnv(double *x, int t, double *dq){
+  int lowOffset = 2*(dofRobot + dofEnv)*t + (dofRobot + dofEnv) + dofRobot + 1;
+  int upOffset  = 2*(dofRobot + dofEnv)*t + 2*(dofRobot + dofEnv);
+  copy(x + lowOffset, x + upOffset, dq);
+}
+
+void setU(double *x, int t, double *u, int nx){
   int uStart    = nx + 1;
   int lowOffset = uStart + dofRobot*(t-1);
   int upOffset  = uStart + dofRobot*t - 1;
-  std::copy(x + lowOffset, x + upOffset, u);
+  copy(x + lowOffset, x + upOffset, u);
 }
 
-void setLambda(double *x, int t, double *lambda, int nx, int nu, int dofLamb){
+void setLambda(double *x, int t, double *lambda, int nx, int nu){
   int lambStart = nx + nu + 1;
   int lowOffset = lambStart + dofLamb*(t-1);
   int upOffset  = lambStart + dofLamb*t - 1;
-  std::copy(x + lowOffset, x + upOffset, lambda);
+  copy(x + lowOffset, x + upOffset, lambda);
 }
 
 // ------------------------------------ //
 
+void userfun(int    *Status, int *n,    double x[],
+       int    *needF,  int *neF,  double F[],
+       int    *needG,  int *neG,  double G[],
+       char      *cu,  int *lencu,
+       int    iu[],    int *leniu,
+       double ru[],    int *lenru) {
+  
+  // TODO IMPLEMENT ME!
+  VectorXf qRobot_T   = getConfigRobot(x, T);
+  VectorXf dqRobot_T  = getVelRobot(x, T);
+  double obj          = getFinalCost(qRobot_T, dqRobot_T); 
+
+  int kinLen  = (dofRobot + dofEnv)*T;
+  int dynLen  = (dofRobot + dofEnv)*T;
+  int collLen = T;
+
+  // Compute kinematic, dynamics, and collision constraints
+  double *kinConstraints = new double[kinLen];
+  double *dynConstraints = new double[dynLen];
+  double *collConstraints = new double[collLen];
+
+  for(int t=0; t<T-1; t++){
+    VectorXf qRobot_t  = getConfigRobot(x, t);
+    VectorXf qRobot_t1 = getConfigRobot(x, t+1); 
+
+    VectorXf dqRobot_t   = getVelRobot(x, t);
+    VectorXf dqRobot_t1  = getVelRobot(x, t+1);
+
+    VectorXf dqEnv_t   = getVelEnv(x, t);
+    VectorXf dqEnv_t1  = getVelEnv(x, t+1); 
+
+    VectorXf qEnv_t  = getConfigEnv(x, t);
+    VectorXf qEnv_t1 = getConfigEnv(x, t+1); 
+
+    VectorXf ddqRobot_t1  = (dqRobot_t1 - dqRobot_t)/dt;
+    VectorXf ddqEnv_t1    = (dqEnv_t1 - dqEnv_t)/dt;
+
+    VectorXf qRobot3D_t1  = config2DTo3D(qRobot_t1);
+    VectorXf dqRobot3D_t1 = vel2DTo3D(qRobot_t1);
+
+    VectorXf u_t1   = getU(x, t+1);
+    VectorXf u3D_t1 = control2DTo3D(u_t1);
+
+    //VectorXf ddqRobot3D_t1_fwd  = forwardDynamics(robot, qRobot3D_t1, dqRobot3D_t1, u3D_t1);
+    //VectorXf ddqRobot_t1_fwd    = acc3DTo2D(ddqRobot3D_t1_fwd);
+
+    obj += dt*getRunningCost(qRobot_t, dqRobot_t, u_t1);
+  }
+
+  int kinStart  = 1;
+  int dynStart  = kinStart + kinLen + 1; 
+  int collStart = dynStart + dynLen + 1;
+
+  // Set up the constraint vector
+  F[0] = obj;
+  copy(F + kinStart, F + kinStart + kinLen, kinConstraints);
+  copy(F + dynStart, F + dynStart + dynLen, dynConstraints);
+  copy(F + collStart, F + collStart + collLen, collConstraints);
+}
+
+
 int main(int argc, char **argv) {
   snoptProblemA ToyProb;
-  
+
+  string urdf_file = "../urdf/jaco_dynamics.urdf";
+
+  /*urdf::Model robot;
+  if (!robot.initString(urdf_file)) {
+    ROS_FATAL("Could not initialize robot model");
+    return -1;
+  }
+
+  KDL::Tree tree;
+  if (!kdl_parser::treeFromFile(urdf_file, tree)){
+    ROS_ERROR("Failed to construct kdl tree");
+    return false;
+  }*/
+
   // Allocate and initialize;
-  int T         =  10;                // planning horizon
-  int dt        =  0.5;               // timestep
-
-  int dofRobot  =  3;                 // num dofs of robot
-  int dofEnv    =  1;                 // num dofs of environment 
-  int dofLamb   =  1;                 // dimension of contact forces
-
   int nx        =  2*(dofRobot+dofEnv)*(T+1); // num states over time horizon
   int nu        =  dofRobot*T;        // num controls over time horizon
   int nlamb     =  T;
@@ -104,6 +288,7 @@ int main(int argc, char **argv) {
   double ObjAdd  = 0;   // row of F(x) containing the objective
 
   int Cold = 0, Basis = 1, Warm = 2;
+  int signedDistLinkStart = 1 + 2*(dofRobot + dofEnv)*T;
 
   double *qRobotInit    = new double[dofRobot];
   double *qRobotMin     = new double[dofRobot]; // all zeros
@@ -129,19 +314,19 @@ int main(int argc, char **argv) {
 
   // --------- Set up init, max and min  --------- //
 
-  std::fill(qRobotInit, qRobotInit + dofRobot, pi);
-  std::fill(qRobotMax, qRobotMax + dofRobot, 2.0*pi);
+  fill(qRobotInit, qRobotInit + dofRobot, pi);
+  fill(qRobotMax, qRobotMax + dofRobot, 2.0*pi);
 
-  std::fill(dqRobotMin, dqRobotMin + dofRobot, -0.35);
-  std::fill(dqRobotMax, dqRobotMax + dofRobot, 0.35);
+  fill(dqRobotMin, dqRobotMin + dofRobot, -0.35);
+  fill(dqRobotMax, dqRobotMax + dofRobot, 0.35);
 
-  std::fill(qEnvMax, qEnvMax + dofEnv, 100.0);
-  std::fill(dqEnvMax, dqEnvMax + dofEnv, 10.0);
+  fill(qEnvMax, qEnvMax + dofEnv, 100.0);
+  fill(dqEnvMax, dqEnvMax + dofEnv, 10.0);
 
-  std::fill(uMin, uMin + dofRobot, -100.0);
-  std::fill(uMax, uMax + dofRobot, 100.0);
+  fill(uMin, uMin + dofRobot, -100.0);
+  fill(uMax, uMax + dofRobot, 100.0);
 
-  std::fill(lambMax, lambMax + dofLamb, 1000.0);
+  fill(lambMax, lambMax + dofLamb, 1000.0);
 
   // --------------------------------------------- //
 
@@ -150,41 +335,41 @@ int main(int argc, char **argv) {
   for(int t = 0;t < T;t++){
     if(t == 0){
       // Constrain initial config and velocity
-      setConfigRobot(xlow, t, qRobotInit, dofRobot, dofEnv);
-      setConfigRobot(xupp, t, qRobotInit, dofRobot, dofEnv);
+      setConfigRobot(xlow, t, qRobotInit);
+      setConfigRobot(xupp, t, qRobotInit);
 
-      setVelRobot(xlow, t, dqRobotInit, dofRobot, dofEnv);
-      setVelRobot(xupp, t, dqRobotInit, dofRobot, dofEnv);
+      setVelRobot(xlow, t, dqRobotInit);
+      setVelRobot(xupp, t, dqRobotInit);
 
-      setConfigEnv(xlow, t, qEnvInit, dofRobot, dofEnv);
-      setConfigEnv(xupp, t, qEnvInit, dofRobot, dofEnv);
+      setConfigEnv(xlow, t, qEnvInit);
+      setConfigEnv(xupp, t, qEnvInit);
 
-      setVelEnv(xlow, t, dqEnvInit, dofRobot, dofEnv);
-      setVelEnv(xupp, t, dqEnvInit, dofRobot, dofEnv);
+      setVelEnv(xlow, t, dqEnvInit);
+      setVelEnv(xupp, t, dqEnvInit);
 
     }else{
       // Constrain joint limits for rest of trajectory
-      setConfigRobot(xlow, t, qRobotMin, dofRobot, dofEnv);
-      setConfigRobot(xupp, t, qRobotMax, dofRobot, dofEnv);
+      setConfigRobot(xlow, t, qRobotMin);
+      setConfigRobot(xupp, t, qRobotMax);
 
-      setVelRobot(xlow, t, dqRobotMin, dofRobot, dofEnv);
-      setVelRobot(xupp, t, dqRobotMax, dofRobot, dofEnv);
+      setVelRobot(xlow, t, dqRobotMin);
+      setVelRobot(xupp, t, dqRobotMax);
 
-      setConfigEnv(xlow, t, qEnvMin, dofRobot, dofEnv);
-      setConfigEnv(xupp, t, qEnvMax, dofRobot, dofEnv);
+      setConfigEnv(xlow, t, qEnvMin);
+      setConfigEnv(xupp, t, qEnvMax);
 
-      setVelEnv(xlow, t, dqEnvMin, dofRobot, dofEnv);
-      setVelEnv(xupp, t, dqEnvMax, dofRobot, dofEnv);
+      setVelEnv(xlow, t, dqEnvMin);
+      setVelEnv(xupp, t, dqEnvMax);
     }
 
     if(t > 0){
       // Set torque limits
-      setU(xlow, t, uMin, nx, dofRobot);
-      setU(xupp, t, uMax, nx, dofRobot);
+      setU(xlow, t, uMin, nx);
+      setU(xupp, t, uMax, nx);
 
       // Set lambda constraint forces
-      setLambda(xlow, t, lambMin, nx, nu, dofLamb);
-      setLambda(xupp, t, lambMax, nx, nu, dofLamb);
+      setLambda(xlow, t, lambMin, nx, nu);
+      setLambda(xupp, t, lambMax, nx, nu);
     }
   }
 
@@ -193,10 +378,11 @@ int main(int argc, char **argv) {
   // Set bounds on the objective
   Flow[0] = -1e3; 
   Fupp[0] =  1e3; 
+  fill(Fupp + signedDistLinkStart, Fupp + signedDistLinkStart + T, 1000.0);
 
-  // Load the data for ToyProb ...
-  ToyProb.initialize    ("", 1);      // no print file; summary on
-  ToyProb.setPrintFile  ("Contact.out"); // oh wait, i want a print file
+  // Load the data for planContact ...
+  ToyProb.initialize    ("", 1);          // no print file; summary on
+  ToyProb.setPrintFile  ("Contact.out");  // oh wait, i want a print file
   ToyProb.setProbName   ("Contact");
 
   // snopta will compute the Jacobian by finite-differences.
