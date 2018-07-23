@@ -25,3 +25,12 @@ Install the kdl_parser that allows us to read the robot's urdf by running:
 rosdep install kdl_parser
 rosmake kdl_parser
 ```
+## Compilation
+Navigate to the ```/contact_planner/src/``` directory. To compile the contact planner, type
+```
+make
+```
+To run the contact planner, type:
+```
+./planContact
+```
