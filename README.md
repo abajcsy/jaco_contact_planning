@@ -6,6 +6,7 @@ This code is written in the Robot Operating System (ROS) framework. The ros/ dir
 
 # Dependencies 
 * [SNOPT](https://ccom.ucsd.edu/~optimizers/solvers/snopt/)
+* [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page#Download)
 * [kdl_parser](http://wiki.ros.org/kdl_parser/Tutorials/Start%20using%20the%20KDL%20parser)
 
 # Setup
